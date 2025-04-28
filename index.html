@@ -4,58 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matthew Mayer | Product Manager Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #f9fafb;
+      --text-color: #1f2937;
+      --card-bg: white;
+      --header-bg: #1d4ed8;
+      --link-color: #e0e7ff;
+      --footer-bg: #e5e7eb;
+    }
+    body.dark-mode {
+      --bg-color: #1e293b;
+      --text-color: #f8fafc;
+      --card-bg: #334155;
+      --header-bg: #0f172a;
+      --link-color: #93c5fd;
+      --footer-bg: #1f2937;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      color: #333;
-      background-color: #f8f9fa;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     header {
-      background-color: #0d6efd;
+      background-color: var(--header-bg);
       color: white;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 2rem;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
     nav a {
-      margin: 0 15px;
+      margin: 0 1rem;
       text-decoration: none;
-      color: white;
-      font-weight: bold;
+      color: var(--link-color);
+      font-weight: 600;
     }
     section {
-      padding: 2rem;
-      max-width: 900px;
+      padding: 3rem 1rem;
+      max-width: 1000px;
       margin: auto;
     }
+    h2 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
     .project {
-      background-color: white;
-      border-radius: 10px;
-      padding: 1.5rem;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
     .footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #f1f1f1;
+      padding: 2rem;
+      background-color: var(--footer-bg);
+      font-size: 0.9rem;
     }
     a.button {
       display: inline-block;
-      background-color: #0d6efd;
+      background-color: #1d4ed8;
       color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
       text-decoration: none;
-      margin-top: 10px;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    p, li {
+      line-height: 1.6;
+    }
+    .toggle-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background-color: rgba(255,255,255,0.2);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Matthew Mayer</h1>
-    <p>Product Manager | Software Engineering Background | MBA in Progress</p>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Matthew Mayer</h1>
+    <p style="font-size: 1.2rem;">Product Manager | Software Engineering Background | MBA in Progress</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -65,27 +112,51 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I am a product-minded professional with a background in Software Engineering and a passion for solving real-world problems with user-centric solutions. I'm currently pursuing an MBA in IT Management to further my leadership, strategy, and business expertise.</p>
+    <p>I’m a product-minded professional with a background in Software Engineering and a passion for solving real-world problems with user-centric solutions. I'm currently pursuing an MBA in IT Management to expand my skills in leadership, strategy, and technical operations.</p>
   </section>
 
   <section id="projects">
-    <h2>Featured Project: LinkUp</h2>
+    <h2>Projects</h2>
+
     <div class="project">
       <h3>LinkUp – Event Planner for Friend Groups</h3>
       <p><strong>Problem:</strong> Coordinating casual events among friends is messy and unorganized through group chats.</p>
-      <p><strong>Solution:</strong> A mobile-first app that allows users to create, manage, and RSVP to events with ease, receive reminders, and track event status.</p>
-      <p><strong>My Role:</strong> Defined problem, created user personas, scoped MVP, prioritized features, and outlined the product roadmap with success metrics and technical feasibility in mind.</p>
-      <a class="button" href="LinkUp_PM_Project_Case_Study.pdf" target="_blank">View Full Case Study (PDF)</a>
+      <p><strong>Solution:</strong> A mobile-first app that allows users to create, manage, and RSVP to events with ease. Features include reminders, event chat, and status tracking for all attendees.</p>
+      <p><strong>My Role:</strong> Defined the problem, created user personas, scoped MVP, prioritized features, and outlined the product roadmap with metrics and technical feasibility in mind.</p>
+      <a class="button" href="LinkUp_PM_Project_Case_Study.pdf" target="_blank">View Full Case Study</a>
     </div>
+
+    <div class="project">
+      <h3>FinTrack – Budgeting App for Students</h3>
+      <p><strong>Problem:</strong> Many students struggle to manage their income, track expenses, and stick to a budget.</p>
+      <p><strong>Solution:</strong> A simple budgeting app that categorizes transactions, sets monthly limits, and helps students visualize where their money goes.</p>
+      <p><strong>My Role:</strong> Designed the user experience, prioritized features for MVP, and proposed monetization strategies through premium analytics and spending tips.</p>
+      <a class="button" href="FinTrack.pdf" target="_blank">View Full Case Study</a>
+    </div>
+
+    <div class="project">
+      <h3>LocalLoop – Community Marketplace Platform</h3>
+      <p><strong>Problem:</strong> Local communities lack focused platforms to buy, sell, or trade goods and services safely.</p>
+      <p><strong>Solution:</strong> A community-first marketplace app with verification, messaging, and categorization features to support local commerce.</p>
+      <p><strong>My Role:</strong> Conducted market research, defined user personas, and mapped out a roadmap with key engagement metrics.</p>
+      <a class="button" href="LocalLoop.pdf" target="_blank">View Full Case Study</a>
+    </div>
+
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>If you'd like to connect, feel free to email me at <strong>matthew@example.com</strong> or message me on <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>.</p>
+    <p>If you'd like to connect, feel free to email me at <strong>mmayer1999@gmail.com</strong> or message me on <a href="https://www.linkedin.com/in/matthewmayerr/" target="_blank">LinkedIn</a>.</p>
   </section>
 
   <div class="footer">
     <p>&copy; 2025 Matthew Mayer. All rights reserved.</p>
   </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </body>
 </html>
