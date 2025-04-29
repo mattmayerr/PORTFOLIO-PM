@@ -14,6 +14,8 @@
       --header-bg: #1d4ed8;
       --link-color: #e0e7ff;
       --footer-bg: #e5e7eb;
+      --button-bg: #4f46e5;
+      --button-bg-hover: #4338ca;
     }
     body.dark-mode {
       --bg-color: #1e293b;
@@ -22,6 +24,22 @@
       --header-bg: #0f172a;
       --link-color: #93c5fd;
       --footer-bg: #1f2937;
+      --button-bg: #2563eb;
+      --button-bg-hover: #1e40af;
+    }
+    a.button {
+      display: inline-block;
+      background-color: #4f46e5; /* brighter indigo */
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 15px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    a.button:hover {
+      background-color: #4338ca;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -111,6 +129,7 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
+      <a href="Matthew_Mayer_PM.pdf" target="_blank" class="button" style="margin-top: 1rem;">View Resume</a>
     </div>
   
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
